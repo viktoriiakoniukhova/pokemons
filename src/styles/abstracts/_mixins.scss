@@ -1,0 +1,22 @@
+@mixin flex(
+  $d: row,
+  $w: nowrap,
+  $j-content: flex-start,
+  $a-items: flex-start,
+  $g: 0
+) {
+  display: flex;
+  flex-direction: $d;
+  flex-wrap: $w;
+  justify-content: $j-content;
+  align-items: $a-items;
+  gap: $g;
+}
+
+@mixin google-sans($fw: 400, $fz: 1.7rem, $lh: 1.3) {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: $fw;
+  font-size: $fz;
+  line-height: $lh;
+}
