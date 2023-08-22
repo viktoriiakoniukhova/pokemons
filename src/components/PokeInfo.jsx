@@ -41,8 +41,12 @@ export default function PokeInfo({
             {Object.entries(stats).map(([key, value]) => {
               return (
                 <tr key={v4()}>
-                  <td>{key}</td>
-                  <td>{value}</td>
+                  <td>
+                    <span>{key}</span>
+                  </td>
+                  <td>
+                    <span>{value}</span>
+                  </td>
                 </tr>
               );
             })}
