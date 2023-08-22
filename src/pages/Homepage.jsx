@@ -4,6 +4,29 @@ import Loader from "../components/Loader";
 import { v4 } from "uuid";
 import PokeInfo from "../components/PokeInfo";
 
+const colors = [
+  "#FF5733",
+  "#9D8DF1",
+  "#4DE1CC",
+  "#F98B2E",
+  "#7B91E1",
+  "#F5A623",
+  "#5CB85C",
+  "#E44D26",
+  "#E15B96",
+  "#A078E3",
+  "#6AC7E1",
+  "#F45587",
+  "#61C09D",
+  "#FEC556",
+  "#A579D3",
+  "#E76E55",
+  "#F06BAE",
+  "#4FCCCB",
+  "#FF6F61",
+  "#B3C7E1",
+];
+
 export default function Homepage() {
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,7 +35,10 @@ export default function Homepage() {
   const [selectedPoke, setSelectedPoke] = useState(null);
   const [showInfo, setShowInfo] = useState(false);
 
+  const [pokeTypesColors, setPokeTypesColors] = useState({});
+
   useEffect(() => {
+    fetchPokeTypesColors("https://pokeapi.co/api/v2/type/");
     if (!cards.length) fetchPokes("https://pokeapi.co/api/v2/pokemon?limit=12");
   }, []);
 
@@ -78,9 +104,24 @@ export default function Homepage() {
     setSelectedPoke(pokeDetails);
   }
 
+  async function fetchPokeTypesColors(url) {
+    const response = await fetch(url);
+    const data = await response.json();
+    const pokesArray = data.results;
+
+    const pokeTypes = {};
+
+    pokesArray.forEach((poke, idx) => {
+      pokeTypes[poke.name] = colors[idx];
+    });
+
+    setPokeTypesColors(pokeTypes);
+  }
   return (
-    <div className="wrapper">
-      <header>Pokedex</header>
+    <div className="wrapper_homepage">
+      <header>
+        <h1>Pokedex</h1>
+      </header>
       <main>
         <div className="container-cards">
           <div className="container-cards__list">
@@ -89,12 +130,18 @@ export default function Homepage() {
             ) : (
               cards.map((card) => {
                 return (
-                  <PokeCard key={v4()} poke={card} onClick={handleCardClick} />
+                  <PokeCard
+                    key={v4()}
+                    poke={card}
+                    onClick={handleCardClick}
+                    selectedPoke={selectedPoke}
+                    showInfo={showInfo}
+                    pokeTypesColors={pokeTypesColors}
+                  />
                 );
               })
             )}
           </div>
-
           <button onClick={handleLoadMoreClick} disabled={!nextPage}>
             Load More
           </button>
