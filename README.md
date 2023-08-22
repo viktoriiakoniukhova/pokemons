@@ -4,9 +4,9 @@ This project is adaptive website that uses https://pokeapi.co/ for getting info 
 
 ## Used endpoints
 
-https://pokeapi.co/api/v2/pokemon?limit=12 - to get pokemons' general info and show them in the list.
-https://pokeapi.co/api/v2/pokemon/{{id}} - to get pokemon's detailed info.
-https://pokeapi.co/api/v2/type/ - to get types of pokemons and fill each of them with different colors.
+1. https://pokeapi.co/api/v2/pokemon?limit=12 - to get pokemons' general info and show them in the list.
+2. https://pokeapi.co/api/v2/pokemon/{{id}} - to get pokemon's detailed info.
+3. https://pokeapi.co/api/v2/type/ - to get types of pokemons and fill each of them with different colors.
 
 ## Instruction
 
