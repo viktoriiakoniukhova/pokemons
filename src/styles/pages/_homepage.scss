@@ -1,0 +1,37 @@
+.wrapper_homepage {
+  @include flex($d: column, $a-items: center);
+  header {
+    padding: 1em;
+    @include h1();
+
+    @include sm {
+      @include h1($koef: 1.5);
+    }
+  }
+  main {
+    @include flex($j-content: space-between, $g: 1em);
+    width: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+    .container-cards {
+      @include flex($d: column, $a-items: unset, $g: 1em);
+      flex: 3;
+      .container-cards__list {
+        @include flex($w: wrap, $j-content: flex-start, $g: 0.5em);
+      }
+      @include sm {
+        flex: 1;
+      }
+    }
+    .container-card {
+      position: sticky;
+      top: 0.5em;
+      @include flex($j-content: center);
+      flex: 1;
+    }
+    @include xs {
+      gap: 0.2em;
+      padding: 0.2em;
+    }
+  }
+}

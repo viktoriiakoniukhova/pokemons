@@ -1,0 +1,53 @@
+.wrapper-card {
+  box-sizing: border-box;
+  @include flex($d: column, $a-items: center, $g: 1em);
+  @include h2($koef: 0.5);
+  @include sm {
+    @include h2($koef: 1);
+  }
+  padding: 1em;
+  border: 3px solid $gold;
+  border-radius: 1em;
+  min-width: calc(25% - 0.5em);
+  transition: background-color 0.5s ease;
+
+  &:hover,
+  &:active {
+    background-color: $light-gold;
+    cursor: pointer;
+  }
+  .wrapper-card__img-container {
+    @include flex();
+    flex: 1 1 auto;
+    img {
+      max-width: 100%;
+    }
+  }
+  .wrapper-card__abilities-container {
+    @include flex($g: 0.5em);
+    @include span($koef: 0.8);
+    padding-bottom: 3em;
+    span {
+      padding: 0.5em 1em;
+      color: #fff;
+      border-radius: 1em;
+    }
+    @include sm {
+      @include span($koef: 0.9);
+      padding-bottom: 1em;
+    }
+  }
+  @include lg {
+    min-width: calc(33% - 0.5em);
+  }
+  @include md {
+    min-width: calc(50% - 0.5em);
+  }
+  @include sm {
+    min-width: 100%;
+  }
+}
+
+.selected {
+  background-color: $light-gold;
+}

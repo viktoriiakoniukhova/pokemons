@@ -14,9 +14,91 @@
 }
 
 @mixin google-sans($fw: 400, $fz: 1.7rem, $lh: 1.3) {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Bangers", cursive;
   font-style: normal;
   font-weight: $fw;
   font-size: $fz;
   line-height: $lh;
+}
+
+// Paragraphs
+@mixin span($fw: 400, $fz: 1.6rem, $koef: 1) {
+  span {
+    letter-spacing: 0.04em;
+    font-family: "Bangers", cursive;
+    font-size: $fz * $koef;
+    font-weight: $fw;
+    line-height: 1.2;
+    @include lg {
+      font-size: 1.4rem * $koef;
+    }
+    @include sm {
+      text-align: center;
+    }
+  }
+}
+
+//Section headings
+@mixin h1($koef: 1) {
+  text-transform: uppercase;
+  h1 {
+    font-size: 5.4rem * $koef;
+    line-height: 1.3;
+    color: $gold;
+    font-family: "Bangers", cursive;
+    font-weight: 800;
+    @include lg {
+      font-size: 4rem * $koef;
+    }
+    @include md {
+      font-size: 3rem * $koef;
+    }
+    @include sm {
+      font-size: 2rem * $koef;
+    }
+  }
+}
+
+@mixin h2($koef: 1) {
+  h2 {
+    text-transform: uppercase;
+
+    @include google-sans($fw: 800, $fz: 3.6rem * $koef, $lh: 1.2);
+    @include lg {
+      font-size: 2.5rem * $koef;
+    }
+    @include md {
+      font-size: 2rem * $koef;
+    }
+    @include sm {
+      text-align: center;
+    }
+  }
+}
+
+//Breakpoints
+@mixin xl {
+  @media (max-width: #{$screen-xl}) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (max-width: #{$screen-lg}) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: #{$screen-md}) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (max-width: #{$screen-sm}) {
+    @content;
+  }
+}
+@mixin xs {
+  @media (max-width: #{$screen-xs}) {
+    @content;
+  }
 }

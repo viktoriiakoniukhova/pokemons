@@ -7,21 +7,19 @@ html {
 }
 
 button {
-  @include flex();
-  text-align: center;
+  @include flex($j-content: center);
+  @include google-sans($fw: 800, $fz: 2rem);
   text-transform: uppercase;
   cursor: pointer;
   padding: 0.5em 1.2em;
 
   outline: none;
-  border: 5px solid $blue;
-  border-radius: 2em;
+  border: 3px solid $gold;
+  border-radius: 1em;
   color: #ffffff;
-  background: $blue;
-  &:hover,
-  &:active,
-  &:focus {
-    color: $blue;
+  background: $gold;
+  &:hover {
+    color: $gold;
     background-color: #ffffff;
   }
 }

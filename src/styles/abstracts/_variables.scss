@@ -1,14 +1,12 @@
-$section_margin: 5em 0;
-$section_margin-small: 3em 0;
+// Breakpoints
+$screen-xs: 375px;
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
 
-$extra-small: 395px;
-$small: 450px;
-$midsize: 640px;
-$medium: 950px;
-$large: 1025px;
-
+//Colors
 $blue: #008cff;
-$green: #9fd383;
-$purple: #977aa6;
-$red: #ee8581;
-$yellow: #ffdd78;
+$light-blue: #008cff2a;
+$gold: #ffd700;
+$light-gold: #ffd90026;

@@ -1,0 +1,49 @@
+.wrapper-info {
+  position: sticky;
+  top: 0;
+  left: 0;
+  @include flex($d: column, $a-items: center, $g: 1em);
+  border: 3px solid $gold;
+  border-radius: 1em;
+  flex: 1;
+  .wrapper-card__img-container {
+    @include flex();
+    flex: 1 1 auto;
+    img {
+      max-width: 100%;
+    }
+  }
+  .wrapper-info__content {
+    @include flex($d: column, $a-items: center, $g: 1em);
+    @include h2($koef: 0.5);
+    @include sm {
+      @include h2();
+    }
+    box-sizing: border-box;
+    padding: 1em;
+    width: 100%;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      tbody {
+        @include span();
+        @include sm {
+          @include span($koef: 0.9);
+        }
+        tr {
+          td {
+            width: 50%;
+            padding: 0.5em;
+            border-bottom: 3px solid $gold;
+
+            text-transform: capitalize;
+
+            &:last-child {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
