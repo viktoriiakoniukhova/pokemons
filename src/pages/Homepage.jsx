@@ -49,7 +49,8 @@ export default function Homepage() {
   };
 
   const handleCardClick = (poke) => {
-    fetchPokeDetails(poke);
+    if (!showInfo || (selectedPoke && selectedPoke.name !== poke.name))
+      fetchPokeDetails(poke);
     setShowInfo(!(selectedPoke && selectedPoke.name === poke.name && showInfo));
   };
 
