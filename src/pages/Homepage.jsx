@@ -31,6 +31,7 @@ export default function Homepage() {
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [nextPage, setNextPage] = useState(null);
+  const [loadingMore, setLoadingMore] = useState(false);
 
   const [selectedPoke, setSelectedPoke] = useState(null);
   const [showInfo, setShowInfo] = useState(false);
@@ -43,9 +44,11 @@ export default function Homepage() {
   }, []);
 
   const handleLoadMoreClick = () => {
-    if (nextPage) {
-      fetchPokes(nextPage);
-    }
+    // if (nextPage) {
+    setLoadingMore(true);
+    fetchPokes(nextPage);
+
+    // }
   };
 
   const handleCardClick = (poke) => {
@@ -78,6 +81,7 @@ export default function Homepage() {
     setCards((prevData) => [...prevData, ...pokesData]);
     setNextPage(data.next);
     setLoading(false);
+    setLoadingMore(false);
   }
 
   async function fetchPokeDetails(poke) {
@@ -143,7 +147,7 @@ export default function Homepage() {
               })
             )}
           </div>
-          <button onClick={handleLoadMoreClick} disabled={!nextPage}>
+          <button onClick={handleLoadMoreClick} disabled={loadingMore}>
             Load More
           </button>
         </div>
